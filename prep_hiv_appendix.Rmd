@@ -1,0 +1,1037 @@
+---
+output: html_document
+title: "Web Appendix for AEA CSQIEP Seminar"
+subtitle: "Public insurance, HIV, and risky behaviours: The role of PrEP"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+---
+
+
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+  ## Run dependencies
+    
+    source('code/functions/presentationDependencies.R')
+    
+    source('code/4.x.makePresentationFigs.R')
+    
+
+```
+
+&nbsp;
+
+# Author Contact Info
+
+```{r author-info, warning=F, echo=F, include=T, message=F}
+
+  
+  tribble(~'Author', ~'Email', ~'Website',
+          "Shyam Raman", "sr2297@cornell.edu", "https://shyamraman.weebly.com/",
+          "Ben Harrell", "benjamin.harrell@vanderbilt.edu", "https://www.benharrellecon.com/",
+          "Alex Hollingsworth", "hollinal@indiana.edu", "https://hollina.github.io/",
+          "Sam Mann", "samuel.j.mann@vanderbilt.edu", "https://sites.google.com/view/samueljamesmann/home",
+          "Katherine Wen", "kjw229@cornell.edu", "https://www.katherinewen.com/") %>% 
+  knitr::kable() %>% kable_styling(full_width = T)
+
+
+```
+
+&nbsp;
+
+# Data Access for Study
+
+```{r data-sources, warning=F, echo=F, include=T, message=F}
+
+  
+  tribble(~'Data Source', ~'Years', ~'Access Link',
+          "CDC Surveillance", "2008 to 2019", "https://www.cdc.gov/nchhstp/atlas/index.htm",
+          "SEER Population Estimates",  "2008 to 2019", "https://seer.cancer.gov/popdata",
+          "BLS LAU Estimates", "2008 to 2019", "https://www.bls.gov/lau/",
+          "Medicaid SDUD", "2011 to 2019","https://www.medicaid.gov/medicaid/prescription-drugs/state-drug-utilization-data/index.html",
+          "USC-RAND OPTIC", "2008 to 2019", "https://www.rand.org/health-care/centers/optic/resources/datasets.html") %>% 
+  knitr::kable() %>% kable_styling(full_width = T)
+
+
+```
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+# Distribution of STI Incidence Rates {.tabset .tabset-fade}
+
+&nbsp;
+
+## HIV {.tabset .tabset-fade .tabset-pills}
+
+### Total Population
+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$hiv_tot
+
+
+```
+
+### By Gender
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$hiv_sex
+
+
+```
+
+### By Expansion Status
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$hiv_medexp
+
+
+```
+
+## Chlamydia {.tabset .tabset-fade .tabset-pills}
+
+### Total Population
+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$chlamydia_tot
+
+
+```
+
+### By Gender
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$chlamydia_sex
+
+
+```
+
+### By Expansion Status
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$chlamydia_medexp
+
+
+```
+
+
+## Gonorrhea {.tabset .tabset-fade .tabset-pills}
+
+### Total Population
+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$gonorrhea_tot
+
+
+```
+
+### By Gender
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$gonorrhea_sex
+
+
+```
+
+### By Expansion Status
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$gonorrhea_medexp
+
+
+```
+
+## Syphilis {.tabset .tabset-fade .tabset-pills}
+
+### Total Population
+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$syphilis_tot
+
+
+```
+
+### By Gender
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$syphilis_sex
+
+
+```
+
+### By Expansion Status
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$dist$syphilis_medexp
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+# Stacked DiD Coefficient Plots {.tabset .tabset-fade .tabset-pills}
+
+&nbsp;
+&nbsp;
+
+## HIV 
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$coefplots$hiv_main 
+
+
+```
+
+## Chlamydia
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$coefplots$chlamydia_main 
+
+
+```
+
+## Gonorrhea
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$coefplots$gonorrhea_main 
+
+
+```
+
+## Syphilis
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$coefplots$syphilis_main 
+
+
+```
+
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+# Event Studies for STI Incidence {.tabset .tabset-fade}
+
+&nbsp;
+
+## HIV {.tabset .tabset-fade}
+
+### Total Population {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_total 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_a55plus 
+
+
+```
+
+
+
+### Among Men {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_male 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_male_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_male_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_male_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_male_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_male_a55plus 
+
+
+```
+
+#### MSM Transmission
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_msm 
+
+
+```
+
+
+### Among Women {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_male 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_female_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_female_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_female_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_female_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$hivdx_female_a55plus 
+
+
+```
+
+
+
+
+
+
+
+## Chlamydia {.tabset .tabset-fade}
+
+### Total Population {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_total 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_a55plus 
+
+
+```
+
+
+### Among Men {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_male 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_male_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_male_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_male_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_male_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_male_a55plus 
+
+
+```
+
+
+
+### Among Women {.tabset .tabset-fade .tabset-pills}
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_male 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_female_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_female_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_female_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_female_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$chlamydia_female_a55plus 
+
+
+```
+
+
+
+
+
+
+
+
+
+## Gonorrhea {.tabset .tabset-fade}
+
+### Total Population {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_total 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_a55plus 
+
+
+```
+
+
+### Among Men {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_male 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_male_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_male_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_male_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_male_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_male_a55plus 
+
+
+```
+
+
+
+### Among Women {.tabset .tabset-fade .tabset-pills}
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_male 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_female_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_female_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_female_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_female_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$gonorrhea_female_a55plus 
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Syphilis {.tabset .tabset-fade}
+
+### Total Population {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_total 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_a55plus 
+
+
+```
+
+
+### Among Men {.tabset .tabset-fade .tabset-pills}
+
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_male 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_male_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_male_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_male_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_male_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_male_a55plus 
+
+
+```
+
+
+
+### Among Women {.tabset .tabset-fade .tabset-pills}
+
+#### All Ages
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_male 
+
+
+```
+
+#### Aged 13 to 24
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_female_13_24
+
+
+```
+
+#### Aged 25 to 34
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_female_25_34 
+
+
+```
+
+#### Aged 35 to 44
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_female_35_44
+
+
+```
+
+#### Aged 45 to 54
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_female_45_54
+
+
+```
+
+#### Aged 55+
+
+```{r, warning=F, echo=F, include=T, message=F, fig.width=12, fig.height=6}
+
+figs$es_plots_cdc$syphilis_female_a55plus 
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+&nbsp;
+&nbsp;
